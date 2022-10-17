@@ -4,13 +4,18 @@ export default {
     name: "HomePage",
     data() {
         return {
-            'posts': ''
+            'postLists': []
+        }
+    },
+    methods: {
+        getAllPosts() {
+            axios.get('http://localhost:8000/api/allPost')
+                .then((response) => {
+                    this.postLists = response.data.post;
+                })
         }
     },
     mounted() {
-        let data = axios.get('http://localhost:8000/api/allPost')
-            .then((response) => {
-                console.log(response.data);
-            })
+        this.getAllPosts();
     }
 }
