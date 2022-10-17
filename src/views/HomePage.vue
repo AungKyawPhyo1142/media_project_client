@@ -92,7 +92,7 @@
                             <div class="single-what-news mb-100">
                               <div class="what-img">
                                 <img
-                                  src="assets/img/news/whatNews1.jpg"
+                                  v-bind:src="post.image"
                                   alt=""
                                 />
                               </div>
