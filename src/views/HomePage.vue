@@ -1,16 +1,17 @@
 <template>
+
         <!-- Whats New Start -->
         <section class="whats-news-area pt-50 pb-20">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row d-flex justify-content-between">
-                            <div class="col-lg-3 col-md-3">
+                            <div class="col-lg-2 col-md-2">
                                 <div class="section-tittle mb-30">
                                     <h3 class="">Whats New</h3>
                                 </div>
                             </div>
-                            <div class="col-lg-9 col-md-9">
+                            <div class="col-lg-7 col-md-7">
                                 <div class="properties__button">
                                     <!--Nav Button  -->
                                     <nav>
@@ -25,56 +26,29 @@
                           role="tab"
                           aria-controls="nav-profile"
                           aria-selected="false"
-                          >Lifestyle</a
-                        >
-                        <a
-                          class="nav-item nav-link"
-                          id="nav-contact-tab"
-                          data-toggle="tab"
-                          href="details.htmlnav-contact"
-                          role="tab"
-                          aria-controls="nav-contact"
-                          aria-selected="false"
-                          >Travel</a
-                        >
-                        <a
-                          class="nav-item nav-link"
-                          id="nav-last-tab"
-                          data-toggle="tab"
-                          href="details.htmlnav-last"
-                          role="tab"
-                          aria-controls="nav-contact"
-                          aria-selected="false"
-                          >Fashion</a
-                        >
-                        <a
-                          class="nav-item nav-link"
-                          id="nav-Sports"
-                          data-toggle="tab"
-                          href="details.htmlnav-nav-Sport"
-                          role="tab"
-                          aria-controls="nav-contact"
-                          aria-selected="false"
-                          >Sports</a
-                        >
-                        <a
-                          class="nav-item nav-link"
-                          id="nav-technology"
-                          data-toggle="tab"
-                          href="details.htmlnav-techno"
-                          role="tab"
-                          aria-controls="nav-contact"
-                          aria-selected="false"
-                          >Technology</a
-                        >
+                          v-for="(category,index) in categoryLists"
+                          :key="index"
+                          >{{category.title}}</a>
                       </div>
                     </nav>
                     <!--End Nav Button  -->
+
                   </div>
                 </div>
               </div>
               <div class="row">
+
                 <div class="col-12">
+                    
+                  <div class="row mb-4">
+                      <div class="col-6">
+                      <div class="input-group input-group-sm">
+                        <input type="text" v-on:keyup.enter="search()" v-model="searchKey" placeholder="Search..." class="form-control form-control-sm">
+                        <button type="submit" @click="search()" class="btn btn-sm"><i class="fa-solid fa-magnifying-glass"></i></button>
+                      </div>
+                    </div>
+                  </div>
+
                   <!-- Nav Card -->
                   <div class="tab-content" id="nav-tabContent">
 
