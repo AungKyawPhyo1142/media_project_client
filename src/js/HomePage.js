@@ -71,6 +71,15 @@ export default {
                 .catch((e) => {
                     console.log(e);
                 })
+        },
+
+        newsDetails(id) {
+            this.$router.push({
+                name: 'newsDetails',
+                params: {
+                    news_id: id
+                },
+            })
         }
     },
     mounted() {
