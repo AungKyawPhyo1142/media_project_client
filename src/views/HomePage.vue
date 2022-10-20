@@ -16,18 +16,18 @@
                                     <!--Nav Button  -->
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="details.htmlnav-home" role="tab" aria-controls="nav-home" aria-selected="true">All</a
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true" @click="categorySearch('')">All</a
                         >
                         <a
                           class="nav-item nav-link"
                           id="nav-profile-tab"
                           data-toggle="tab"
-                          href="details.htmlnav-profile"
                           role="tab"
                           aria-controls="nav-profile"
                           aria-selected="false"
                           v-for="(category,index) in categoryLists"
                           :key="index"
+                          @click="categorySearch(category.title)"
                           >{{category.title}}</a>
                       </div>
                     </nav>
@@ -62,7 +62,12 @@
                       <div class="whats-news-caption">
                         <div class="row">
 
-                          <div class="col-lg-6 col-md-6" v-for="(post,index) in postLists" :key="index">
+                          <div class="text-center my-5"
+                          v-if="postLists.length==0">
+                            <h1 class="text-muted">Sorry. There is no data at the moment.</h1>
+                          </div>
+
+                          <div class="col-lg-6 col-md-6" v-else v-for="(post,index) in postLists" :key="index">
                             <div class="single-what-news mb-100">
                               <div class="what-img">
                                 <img
