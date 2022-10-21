@@ -53,6 +53,7 @@
                       name="email"
                       id="inputEmail"
                       placeholder="Enter email address..."
+                      v-model="userData.email"
                     />
                   </div>
                 </div>
@@ -66,13 +67,16 @@
                       name="password"
                       id="inputEmail"
                       placeholder="Enter password..."
+                      v-model="userData.password"
                     />
                   </div>
                 </div>
 
                 <div class="form-group row my-3">
                   <div class="col-sm-10">
-                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="btn" @click="loginToken()">
+                      Login
+                    </button>
                   </div>
                 </div>
               </div>
