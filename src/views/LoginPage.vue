@@ -18,15 +18,15 @@
         id="navbarSupportedContent"
       >
         <ul class="navbar-nav mr-auto bg-dark">
-          <li class="nav-item active mx-2">
-            <a class="nav-link text-white" @click="goHomePage()">
-              <i class="fa-solid fa-house me-1"></i> Home
+          <li class="nav-item active mx-2" v-if="!tokenStatus">
+            <a class="nav-link text-white" @click="goLoginPage()">
+              <i class="fa-solid fa-house me-1"></i> Log In
               <span class="sr-only">(current)</span></a
             >
           </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link text-white" @click="goLoginPage()"
-              ><i class="fa-solid fa-key me-1"></i>Log In</a
+          <li class="nav-item mx-2" v-else>
+            <a class="nav-link text-white" @click="logout()"
+              ><i class="fa-solid fa-key me-1"></i>Log Out</a
             >
           </li>
         </ul>
@@ -44,6 +44,12 @@
           <div class="card-body">
             <div class="tab-content">
               <div class="active tab-pane" id="activity">
+                <div class="form-group row my-3" v-if="userStatus">
+                  <span class="text-danger"
+                    ><i class="fa-solid fa-triangle-exclamation me-2"></i
+                    >Credentials do not match!</span
+                  >
+                </div>
                 <div class="form-group row my-3">
                   <label for="inputEmail" class="form-label">Email</label>
                   <div class="">

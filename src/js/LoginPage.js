@@ -8,6 +8,8 @@ export default {
                 email: null,
                 password: null
             },
+            tokenStatus: false,
+            userStatus: false
         }
     },
     methods: {
@@ -28,9 +30,13 @@ export default {
             axios.post('http://localhost:8000/api/user/login', this.userData)
                 .then((response) => {
                     if (response.data.token != null) {
-                        this.storeUserData(response)
+                        this.userStatus = false;
+                        this.userData.email = null;
+                        this.userData.password = null;
+                        this.storeUserData(response);
+                        this.goHomePage()
                     } else {
-                        console.log('Wrong username or password');
+                        this.userStatus = true;
                     }
                 })
                 .catch((e) => {

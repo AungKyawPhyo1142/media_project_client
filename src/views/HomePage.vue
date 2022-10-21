@@ -24,9 +24,14 @@
               <span class="sr-only">(current)</span></a
             >
           </li>
-          <li class="nav-item mx-2">
+          <li class="nav-item mx-2" v-if="!tokenStatus">
             <a class="nav-link text-white" @click="goLoginPage()"
               ><i class="fa-solid fa-key me-1"></i>Log In</a
+            >
+          </li>
+          <li class="nav-item mx-2" v-else>
+            <a class="nav-link text-white" @click="logout()"
+              ><i class="fa-solid fa-key me-1"></i>Log Out</a
             >
           </li>
         </ul>
@@ -107,10 +112,7 @@
                 >
                   <div class="whats-news-caption">
                     <div class="row">
-                      <div
-                        class="text-center my-5"
-                        v-if="postLists.length == 0"
-                      >
+                      <div class="text-center my-5" v-if="!tokenStatus">
                         <h1 class="text-muted">
                           Sorry. There is no data at the moment.
                         </h1>
