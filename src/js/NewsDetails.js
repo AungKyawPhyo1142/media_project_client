@@ -22,7 +22,7 @@ export default {
         },
         goBack() {
             history.back();
-        }
+        },
     },
     mounted() {
         this.newsID = this.$route.params.news_id;

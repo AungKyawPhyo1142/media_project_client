@@ -80,6 +80,18 @@ export default {
                     news_id: id
                 },
             })
+        },
+
+        goHomePage() {
+            this.$router.push({
+                name: 'home'
+            })
+        },
+
+        goLoginPage() {
+            this.$router.push({
+                name: 'loginPage'
+            })
         }
     },
     mounted() {
