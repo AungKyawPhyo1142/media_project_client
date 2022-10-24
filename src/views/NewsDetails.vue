@@ -8,7 +8,6 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="trending-tittle">
-                <strong>Trending now</strong>
                 <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                 <div class="trending-animated">
                   <ul id="js-news" class="js-hidden">
@@ -42,30 +41,9 @@
                   </p>
                 </div>
                 <div class="social-share pt-30">
-                  <div class="section-tittle">
-                    <h3 class="mr-20">Share:</h3>
-                    <ul>
-                      <li>
-                        <a href="#"
-                          ><img src="/assets/img/news/icon-ins.png" alt=""
-                        /></a>
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img src="/assets/img/news/icon-fb.png" alt=""
-                        /></a>
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img src="/assets/img/news/icon-tw.png" alt=""
-                        /></a>
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img src="/assets/img/news/icon-yo.png" alt=""
-                        /></a>
-                      </li>
-                    </ul>
+                  <div class="section-tittle d-flex align-items-center">
+                    <i class="fa-solid fa-eye fs-5 me-2"></i>
+                    <span class="fs-5">View: {{ this.viewCount }}</span>
                   </div>
                 </div>
               </div>

@@ -31,9 +31,9 @@ export default {
                 .then((response) => {
                     if (response.data.token != null) {
                         this.userStatus = false;
+                        this.storeUserData(response);
                         this.userData.email = null;
                         this.userData.password = null;
-                        this.storeUserData(response);
                         this.goHomePage()
                     } else {
                         this.userStatus = true;

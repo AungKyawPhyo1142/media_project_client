@@ -1,12 +1,17 @@
 import axios from "axios";
+import { mapGetters } from "vuex";
 
 export default {
     name: "NewsDetails",
     data() {
         return {
             newsID: 0,
-            posts: {}
+            posts: {},
+            viewCount: 0
         }
+    },
+    computed: {
+        ...mapGetters(["getToken", "getUserData"])
     },
     methods: {
         loadPost(id) {
@@ -23,8 +28,20 @@ export default {
         goBack() {
             history.back();
         },
+        viewCountLoad() {
+            let data = {
+                'user_id': this.getUserData.id,
+                'post_id': this.$route.params.news_id
+            };
+            axios.post('http://localhost:8000/api/actionLogs', data)
+                .then((response) => {
+                    this.viewCount = response.data.posts.length;
+                })
+
+        }
     },
     mounted() {
+        this.viewCountLoad();
         this.newsID = this.$route.params.news_id;
         this.loadPost(this.newsID);
     }
